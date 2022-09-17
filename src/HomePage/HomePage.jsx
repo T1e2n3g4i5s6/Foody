@@ -11,53 +11,122 @@ import {
   ListItem, 
   ListItemButton, 
   ListItemIcon,
-  ListItemText
+  ListItemText,
+  Avatar,
+  Button
 } from "@mui/material";
-import {SettingsIcon, EqualizerIcon} from "@mui/icons-material";
+import SettingsIcon from '@mui/icons-material/Settings'; 
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import DescriptionIcon from '@mui/icons-material/Description';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import SearchIcon from '@mui/icons-material/Search';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Logo from "../images/Logo.png"
+import FoodCart from "./FoodCart";
+import {Modal} from "@mui/material";
+import { useFunction } from "../provider/Function";
 
-export default function PermanentDrawerLeft() {
+const style = {
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
+  const  Home = () => {
+    const {open, handleClose, handleOpen} = useFunction();
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{ width: `calc(100% - 240px)`, ml: `240px` }}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Захиалах
-          </Typography>
-        </Toolbar>
-      </AppBar>
 
-      <Drawer
-        sx={{
-          backgroundColor: "blue",
-          height:"100vh",
-          width: "20vw",
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: 240,
-          },
-        }}
-        variant="permanent"
-        anchor="left">
-        <img style={{height:"auto", width:"7vw"}} src={Logo}/>
-        <List sx={{backgroundColor:"#000723", color:"white"}} component="nav" aria-label="mailbox folders">
-            <ListItem button>
-              <ListItemText primary="Захиалга" />
-            </ListItem>
-            <ListItem button divider>
-              <ListItemText primary="График" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Тохиргоо" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Меню" />
-            </ListItem>
-        </List>
-      </Drawer>
+      {/* Header heseg */}
+
+      <Box sx={{width:"9vw"}}>
+        <AppBar
+          position="fixed"
+          sx={{ width: `calc(100% - 240px)`, ml: `240px`}}>
+
+          <Toolbar sx={{height:"70px", display:"flex", alignItems:"center", justifyContent:"space-between", color:"black", backgroundColor:"white"}}>
+            <Typography variant="h5">Захиалах</Typography>
+            <Box Item sx={{ display:"flex", alignItems:"center", justifyContent:"space-around",width:"13vw"}}>
+              <SearchIcon/>
+              <NotificationsActiveIcon/>
+              <Box sx={{fontSize:"30px", color:"silver"}}>|</Box>
+              <Typography variant="h5">Tengis</Typography>
+              <Avatar/>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </Box>
+
+      <Box sx={{height:"15vh"}}>
+        <Drawer
+          sx={{
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: 240,
+              backgroundColor:"#000723",
+              paddingTop:"40px"
+            },
+          }}
+          variant="permanent"
+          anchor="left">
+          <img style={{width:"126px", height:"55.17px", marginLeft:"50px", marginBottom:"20px"}} src={Logo}/>
+          <List sx={{backgroundColor:"#000723", color:"white"}} component="nav" aria-label="mailbox folders">
+              <ListItem button>
+                <DescriptionIcon/>
+                <ListItemText primary="Захиалга" />
+              </ListItem>
+              <ListItem button divider>
+                <EqualizerIcon/>
+                <ListItemText primary="График" />
+              </ListItem>
+              <ListItem button>
+                  <SettingsIcon/>
+                <ListItemText primary="Тохиргоо" />
+              </ListItem>
+              <ListItem button>
+                <RestaurantIcon/>
+                <ListItemText primary="Меню" />
+              </ListItem>
+              <Button sx={{width:"100%"}}  variant="contained" color="success">
+                Нэвтрэх
+              </Button>
+          </List>
+        </Drawer>
+      </Box>
+
+        <Box sx={{height:"95vh", width:"92vw", backgroundColor:"red",marginTop:"70px", display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
+          <FoodCart/>
+          <FoodCart/> 
+          <FoodCart/>
+          <FoodCart/>
+          <FoodCart/>
+          <FoodCart/>
+        <div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Text in a modal
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
+            </Box>
+          </Modal>
+         </div>
+        </Box>
+
+
     </Box>
   );
 }
+export default Home;
