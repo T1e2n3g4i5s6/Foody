@@ -23,19 +23,23 @@ import SearchIcon from '@mui/icons-material/Search';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Logo from "../images/Logo.png"
 import FoodCart from "./FoodCart";
+import LoginModal from "./LogIn";
+import { useFunction } from "../provider/FunctionProvider";
 
   const  Home = () => {
+    const {handleOpen} = useFunction();
   return (
     <Box sx={{ display: "flex" }}>
 
       {/* Header heseg */}
 
       <Box sx={{width:"9vw"}}>
-        <AppBar
+        <Box
           position="fixed"
-          sx={{ width: `calc(100% - 240px)`, ml: `240px`}}>
+          sx={{ width: `calc(100% - 240px)`, ml: `240px`}}
+          >
 
-          <Toolbar sx={{height:"70px", display:"flex", alignItems:"center", justifyContent:"space-between", color:"black", backgroundColor:"white"}}>
+          <Toolbar sx={{height:"70px", display:"flex", alignItems:"center", justifyContent:"space-between", color:"black", backgroundColor:"white", borderBottom:"1px solid silver"}}>
             <Typography variant="h5">Захиалах</Typography>
             <Box Item sx={{ display:"flex", alignItems:"center", justifyContent:"space-around",width:"13vw"}}>
               <SearchIcon/>
@@ -45,17 +49,18 @@ import FoodCart from "./FoodCart";
               <Avatar/>
             </Box>
           </Toolbar>
-        </AppBar>
+        </Box>
       </Box>
 
-      <Box sx={{height:"15vh"}}>
+      <Box>
         <Drawer
           sx={{
-            flexShrink: 0,
+            width:"40px",
             "& .MuiDrawer-paper": {
               width: 240,
               backgroundColor:"#000723",
-              paddingTop:"40px"
+              paddingTop:"40px",
+              width:"240px"
             },
           }}
           variant="permanent"
@@ -78,16 +83,25 @@ import FoodCart from "./FoodCart";
                 <RestaurantIcon/>
                 <ListItemText primary="Меню" />
               </ListItem>
-              <Button sx={{width:"100%"}}  variant="contained" color="success">
+              <Button onClick={handleOpen} sx={{width:"100%"}}  variant="contained" color="success">
                 Нэвтрэх
-              </Button>         
+              </Button>   
+              <LoginModal/>      
           </List>
         </Drawer>
       </Box>
 
-        <Box sx={{height:"95vh", width:"92vw", backgroundColor:"red",marginTop:"70px", display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
+        <Box sx={{height:"auto%", width:"92vw", backgroundColor:"red",marginTop:"70px", display:"flex",flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-between"}}>
           <FoodCart/>
           <FoodCart/> 
+          <FoodCart/> 
+          <FoodCart/> 
+          <FoodCart/> 
+          <FoodCart/> 
+          <FoodCart/> 
+          <FoodCart/> 
+          <FoodCart/> 
+          <FoodCart/>
           <FoodCart/>
           <FoodCart/>
           <FoodCart/>
