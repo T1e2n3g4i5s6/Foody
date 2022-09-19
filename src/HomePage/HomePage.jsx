@@ -25,7 +25,6 @@ import Logo from "../images/Logo.png"
 import FoodCart from "./FoodCart";
 import LoginModal from "./LogIn";
 import { useFunction } from "../provider/FunctionProvider";
-
   const  Home = () => {
     const {handleOpen} = useFunction();
   return (
