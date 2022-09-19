@@ -24,7 +24,7 @@ const FoodCart = ({ imgSrc, title, portion, price, isAdd = true }) => {
     const handleClose = () => setOpen(false);
 
     return (
-        <Box container sx={{height:"30vh", width:"13vw", backgroundColor:"yellow", display:"flex",justifyContent:"space-around", alignItems:"center", flexDirection:"column"}}>
+        <Box container sx={{height:"30vh", width:"12vw", backgroundColor:"yellow", display:"flex",justifyContent:"space-around", alignItems:"center", flexDirection:"column", margin:"50px", borderRadius:"15px"}}>
             <Box>
                 <img src={FoodImg}/>
             </Box>
@@ -36,7 +36,7 @@ const FoodCart = ({ imgSrc, title, portion, price, isAdd = true }) => {
                         <Typography>{price}</Typography>
                         <Button></Button>
                     </Box> :
-                    <Button onClick={handleOpen} sx={{borderRadius:"100%", height:"60px", width:"50px", fontSize:"25px"}} variant="contained" color="success">+</Button>
+                    <Button onClick={handleOpen} sx={{borderRadius:"50%", height:"55px", fontSize:"25px"}} variant="contained" color="success">+</Button>
                 }
             </Box>
             <Box>
