@@ -51,7 +51,7 @@ const AddFoodModal = () => {
                         <img src={Img}/>
                         <CameraAltIcon/>
                     </Box>
-                    <Box style={{display:"flex", flexDirection:"column",width:"60%", height:"100%",justifyContent:"space-between", align}}>
+                    <Box style={{display:"flex", flexDirection:"column",width:"60%", height:"100%",justifyContent:"space-between"}}>
                     <FormControl variant="standard">
                         <InputLabel shrink >Bootstrap</InputLabel>
                         <TextField sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
