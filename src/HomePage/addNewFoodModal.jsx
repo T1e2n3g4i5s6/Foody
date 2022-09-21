@@ -61,21 +61,6 @@ const AddFoodModal = () => {
                         <img src={Img}/>
                         <CameraAltIcon sx={{marginTop:"100px"}}/>
                     </Box>
-<<<<<<< HEAD
-                    <Box style={{display:"flex", flexDirection:"column",width:"60%", height:"100%",justifyContent:"space-between"}}>
-                    <FormControl variant="standard">
-                        <InputLabel shrink >Bootstrap</InputLabel>
-                        <TextField sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
-                    </FormControl>
-                    <FormControl variant="standard">
-                        <InputLabel shrink >Bootstrap</InputLabel>
-                        <TextField sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
-                    </FormControl>
-                    <FormControl variant="standard">
-                        <InputLabel shrink >Bootstrap</InputLabel>
-                        <TextField sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
-                    </FormControl>
-=======
                     <Box sx={{display:"flex", flexDirection:"column",width:"60%", height:"100%",justifyContent:"space-evenly",alignItems:"center"}}>
                         <FormControl variant="standard">
                             <InputLabel sx={textStyle} shrink >Хоолны нэр</InputLabel>
@@ -103,7 +88,6 @@ const AddFoodModal = () => {
                                 <MenuItem value={5}>Хүнд хоол</MenuItem>
                             </Select>
                         </FormControl>
->>>>>>> 96cb577affd9ead7076d4f3292af4445b23c1669
                     </Box>
                 </Box>
                 <Box style={{height:"62%", width:"100%", backgroundColor:"red", borderRadius:"0px 0px 30px 30px"}}>
