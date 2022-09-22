@@ -10,9 +10,7 @@ export const useHookTest = (docUid) => {
     try {
       const item = await getDocs(collection(db, `Foods`));
       item.forEach(el=>{
-        // console.log(el.data())
-        
-        console.log(datas);
+        console.log(el.data())
       })
     } catch (error) {
       console.log(error);
