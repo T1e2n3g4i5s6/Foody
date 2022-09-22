@@ -21,7 +21,7 @@ import {useHookTest} from "../customHook/getDocCustomHook";
 
       {/* Header heseg */}
 
-      <Box sx={{width:"9vw"}}>
+      <Box sx={{width:"8vw"}}>
         <Box
           position="fixed"
           sx={{ width: `calc(100% - 240px)`, ml: `240px`}}

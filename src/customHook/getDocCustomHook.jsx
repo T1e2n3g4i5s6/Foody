@@ -8,13 +8,16 @@ export const useHookTest = (docUid) => {
   const getData = async () => {
     setDatas((datas = []));
     try {
-      const item = await getDocs(collection(db, `users`));
+      const item = await getDocs(collection(db, `Foods`));
       item.forEach(el=>{
-        console.log(el.data())
+        // console.log(el.data())
+        
+        console.log(datas);
       })
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
-
   useEffect(() => {
     getData();
   }, []);
