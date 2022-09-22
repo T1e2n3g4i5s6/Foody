@@ -27,7 +27,7 @@ const NavBar = () => {
               width: 240,
               backgroundColor:"#000723",
               paddingTop:"40px",
-              width:"240px"
+              width:"10vw"
             },
             }}
             variant="permanent"

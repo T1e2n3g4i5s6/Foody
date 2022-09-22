@@ -1,13 +1,13 @@
 import { useState} from 'react';
 import FoodImg from "../images/addFoodImg.png"
-import { Box, Typography, Button} from '@mui/material';
+import { Box, Typography, Button, Paper} from '@mui/material';
 import AddFoodModal from './addNewFoodModal';
 import { useFunction } from '../provider/FunctionProvider';
 
 const FoodCart = ({ imgSrc, title, portion, price, isAdd = true }) => {
     const {handleOpenTwo} = useFunction();
     return (
-        <Box container sx={{height:"30vh", width:"12vw", backgroundColor:"yellow", display:"flex",justifyContent:"space-around", alignItems:"center", flexDirection:"column", margin:"50px", borderRadius:"15px"}}>
+        <Paper elevation={3} container sx={{height:"30vh", width:"12vw", backgroundColor:"yellow", display:"flex",justifyContent:"space-around", alignItems:"center", flexDirection:"column", margin:"50px", borderRadius:"15px"}}>
             <Box>
                 <img src={FoodImg}/>
             </Box>
@@ -23,7 +23,7 @@ const FoodCart = ({ imgSrc, title, portion, price, isAdd = true }) => {
                 }
             </Box>
                     <AddFoodModal/>
-        </Box>
+        </Paper>
     )
 }
 
