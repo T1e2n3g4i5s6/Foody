@@ -93,4 +93,4 @@ const LoginModal = () => {
     </div>
   );
 }
-export default LoginModal
+export default LoginModal;
