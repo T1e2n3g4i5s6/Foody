@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import FoodImg from "../images/addFoodImg.png"
 import { Box, Typography, Button, Paper} from '@mui/material';
-import AddFoodModal from './addNewFoodModal';
+import AddFoodModal from '../Modals/addNewFoodModal';
 import { useFunction } from '../provider/FunctionProvider';
 
 const FoodCart = ({ imgSrc, title, portion, price, isAdd = true }) => {

@@ -1,10 +1,9 @@
-import './App.css';
-import HomePage from './HomePage/HomePage';
+import { RoutesComponent } from './components/routes';
 
 function App() {
   return (
     <>
-      <HomePage/>
+      <RoutesComponent/>
     </>
   );
 }
