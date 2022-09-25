@@ -13,11 +13,11 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
-import { DrawerStyle } from "./SideBarStyle";
+import { DrawerStyle } from "../styles/SideBarStyle";
 import { useFunction } from "../provider/FunctionProvider";
-import LoginModal from "./LogInModal";
+import LoginModal from "../Modals/LogInModal";
 import Logo from "../images/Logo.png";
-import {listItem, DrawerHeader} from "./SideBarStyle";
+import {listItem, DrawerHeader} from "../styles/SideBarStyle";
 
 export const Sidebar = ({ handleDrawerClose, open }) => {
 

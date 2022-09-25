@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { FunctionProvider } from './provider/FunctionProvider';
+import { FoodDatasProvider } from './provider/foodDatasProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <FunctionProvider>
-      <App />
+      <FoodDatasProvider>
+        <App />
+      </FoodDatasProvider>
     </FunctionProvider>
   </React.StrictMode>
 );

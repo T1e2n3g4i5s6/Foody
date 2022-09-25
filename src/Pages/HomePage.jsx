@@ -1,14 +1,11 @@
 import * as React from "react";
 import {Box} from "@mui/material";
-import FoodCart from "./FoodCart";
-import SideBar from "./SideBar";
-import {useHookTest} from "../customHook/getDocCustomHook";
-import NavBar from "./NavBar";
-
-
+import FoodCart from "../components/FoodCart";
+import { useAddFood } from "../provider/foodDatasProvider";
   const  Home = () => {
 
-    // const data = useHookTest("Kb2TNAOl8Qe3ugcyRBi1")
+    const {foodDatas} = useAddFood();
+    console.log(foodDatas); 
 
   return (
     <Box sx={{ display: "flex" }}>

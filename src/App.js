@@ -1,6 +1,4 @@
-
-import HomePage from './HomePage/HomePage';
-import { RoutesComponent } from './HomePage/routes';
+import { RoutesComponent } from './components/routes';
 
 function App() {
   return (

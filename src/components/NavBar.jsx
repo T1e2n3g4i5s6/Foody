@@ -32,7 +32,7 @@ const AppBar = styled(MuiAppBar, {
 export const Navbar = ({ open, handleDrawerOpen }) => {
   return (
     <Box sx={{ display: "flex" }}>
-      {/* <CssBaseline /> */}
+      <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar sx={{display:"flex",justifyContent:"space-between",color:"black", backgroundColor:"white", borderBottom:"1px solid silver"}}>
           <IconButton
