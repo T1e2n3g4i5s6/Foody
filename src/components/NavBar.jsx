@@ -10,6 +10,7 @@ import {
   Avatar
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import spida from "../images/spida.jpg"
 import SearchIcon from "@mui/icons-material/Search"
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive"
 
@@ -17,7 +18,7 @@ export const Navbar = ({ open, handleDrawerOpen }) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar  position="fixed" open={open}>
         <Toolbar sx={toolbarStyle}>
           <IconButton
             color="inherit"
@@ -36,9 +37,9 @@ export const Navbar = ({ open, handleDrawerOpen }) => {
           <Box sx={iconsContainer}>
             <SearchIcon style={iconStyle}/>
             <NotificationsActiveIcon style={iconStyle}/>
-            <Box sx={{fontSize:"3vh", color:"silver"}}>|</Box>
+            <Box sx={{fontSize:"2vh", color:"silver"}}>|</Box>
             <Typography style={fontSize}>Tengis</Typography>
-            <Avatar/>
+            <Avatar src={spida}/>
           </Box>
 
         </Toolbar>
@@ -59,7 +60,7 @@ const toolbarStyle = {
   display:"flex",
   justifyContent:"space-between",
   color:"black",
-  backgroundColor:"white",
+  backgroundColor:"#F5DEB3",
   borderBottom:"1px solid silver"
 }
 const iconsContainer = {
