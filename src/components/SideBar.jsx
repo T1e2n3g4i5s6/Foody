@@ -9,21 +9,25 @@ import {
   ListItemIcon,
   ListItemText
 } from "@mui/material";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Logo from "../images/Logo.png";
+import LoginModal from "../Modals/LogInModal";
+import { styled } from "@mui/material/styles"
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
-import { DrawerStyle } from "../styles/SideBarStyle";
 import { useFunction } from "../provider/FunctionProvider";
-import LoginModal from "../Modals/LogInModal";
-import Logo from "../images/Logo.png";
-import {listItem, DrawerHeader} from "../styles/SideBarStyle";
+import SettingsIcon from "@mui/icons-material/Settings";
+import EqualizerIcon from "@mui/icons-material/Equalizer";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import DescriptionIcon from "@mui/icons-material/Description";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
 
 export const Sidebar = ({ handleDrawerClose, open }) => {
 
   const theme = useTheme();
   const navigate = useNavigate();
-  const {handleOpen} = useFunction();
+  const { handleOpen } = useFunction();
 
   return (
     <>
@@ -33,7 +37,7 @@ export const Sidebar = ({ handleDrawerClose, open }) => {
         open={open}
       >
         <DrawerHeader>
-          <IconButton sx={{color:"white"}} onClick={handleDrawerClose}>
+          <IconButton sx={{ color: "white" }} onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
             ) : (
@@ -42,8 +46,8 @@ export const Sidebar = ({ handleDrawerClose, open }) => {
           </IconButton>
         </DrawerHeader>
 
-        <Box sx={{width:'100%',display:"flex", justifyContent:"center"}}>
-          <img src={Logo} style={{width:"60%"}}/>
+        <Box sx={logoContainer}>
+          <img src={Logo} style={{ width: "60%" }} />
         </Box>
 
         <List>
@@ -54,20 +58,49 @@ export const Sidebar = ({ handleDrawerClose, open }) => {
                   navigate(href);
                 }}
               >
-                <ListItemIcon sx={{color:'white'}}>{icon}</ListItemIcon>
+                <ListItemIcon sx={{ color: 'white' }}>{icon}</ListItemIcon>
                 <ListItemText primary={title} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
 
-        <Button onClick={handleOpen} sx={{width:"100%"}}  variant="contained" color="success">
+        <Button onClick={handleOpen} sx={{ width: "100%" }} variant="contained" color="success">
           Нэвтрэх
-        </Button>  
+        </Button>
 
-        <LoginModal/>
+        <LoginModal />
 
       </Drawer>
     </>
   );
 };
+const logoContainer = {
+  width: '100%',
+  display: "flex",
+  justifyContent: "center"
+}
+const DrawerStyle = {
+  width: 240,
+  flexShrink: 0,
+  "& .MuiDrawer-paper": {
+    width: 240,
+    boxSizing: "border-box",
+    backgroundColor: "#000723",
+    color: "white",
+
+  },
+}
+const listItem = [
+  { title: "Захиалга", href: "order", icon: <DescriptionIcon /> },
+  { title: "График", href: "grapic", icon: <EqualizerIcon /> },
+  { title: "Тохиргоо", href: "settings", icon: <SettingsIcon /> },
+  { title: "Меню", href: "menu", icon: <RestaurantIcon /> },
+];
+const DrawerHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  padding: theme.spacing(0, 1),
+  ...theme.mixins.toolbar,
+  justifyContent: "flex-end",
+}));

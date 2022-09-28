@@ -1,7 +1,6 @@
-import { collection } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from '../FireBase/FirebaseConfig'
-import { onSnapshot } from "firebase/firestore";
 import _ from "lodash";
 
 export const useGetDocFirebase = (name) => {

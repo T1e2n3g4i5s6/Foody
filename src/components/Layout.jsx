@@ -18,7 +18,7 @@ export const Layout = () => {
     <>
       <Navbar open={open} handleDrawerOpen={handleDrawerOpen} />
       <Sidebar handleDrawerClose={handleDrawerClose} open={open} />
-      <Box sx={{ pt: 10, pl: open ? 35 : 10 }}>
+      <Box sx={{ pt: 10, pl: open ? 0 : 0 }}>
         <Outlet />
       </Box>
     </>

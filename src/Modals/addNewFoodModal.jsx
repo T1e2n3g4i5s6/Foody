@@ -10,40 +10,21 @@ import {
     MenuItem,
     Select
 } from '@mui/material';
-import { useState } from 'react';
 import Img from "../images/Img.png"
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import { useState } from 'react';
 import { useFunction } from '../provider/FunctionProvider';
-
-const style = {
-    width:700,
-    height:1000,
-    backgroundColor:"background.paper",
-    border: '1px solid #000',
-    boxShadow: 24,
-    borderRadius:"30px",
-    display:"flex",
-    flexDirection:"column",
-    transform: 'translate(+100%, +4%)',
-};
-
-const styleInput = {
-    width:"30ch",
-}
-const textStyle = {
-    marginTop:"-20px"
-}
 
 const AddFoodModal = () => {
 
     const [foodType, setfoodType] = useState('');
-    const {openTwo,handleCloseTwo} = useFunction();
+    const { openTwo, handleCloseTwo } = useFunction();
 
     const handleChange = (e) => {
         setfoodType(e.target.value);
-      };
+    };
 
-    return(
+    return (
         <Modal
             open={openTwo}
             onClose={handleCloseTwo}
@@ -51,24 +32,24 @@ const AddFoodModal = () => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Box sx={{width:"100%", height:"6%",display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-around", borderBottom:"1px solid silver"}}>
+                <Box sx={topContainerStyle}>
                     <Button variant='contained' color='error'>X</Button>
                     <Typography variant='h5'>Хоол нэмэх</Typography>
                     <Button variant='contained' color='success'>Хадгалах</Button>
                 </Box>
-                <Box sx={{width:"100%", height:"32%", display:"flex", flexDirection:"row"}}>
-                    <Box sx={{width:"40%", height:"80%", display:'flex', alignItems:"flex-end", justifyContent:"center", borderBottom:"1px solid silver"}}>
-                        <img src={Img}/>
-                        <CameraAltIcon sx={{marginTop:"100px"}}/>
+                <Box sx={midConteinerStyle}>
+                    <Box sx={midConteinerImgStyle}>
+                        <img src={Img} />
+                        <CameraAltIcon sx={{ marginTop: "100px" }} />
                     </Box>
-                    <Box sx={{display:"flex", flexDirection:"column",width:"60%", height:"100%",justifyContent:"space-evenly",alignItems:"center"}}>
+                    <Box sx={midMenuContainerStyle}>
                         <FormControl variant="standard">
                             <InputLabel sx={textStyle} shrink >Хоолны нэр</InputLabel>
                             <TextField size='small' sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
                         </FormControl>
                         <FormControl variant="standard">
                             <InputLabel sx={textStyle} shrink >Дэлгэрэнгүй</InputLabel>
-                            <TextField  sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
+                            <TextField sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
                         </FormControl>
                         <FormControl variant="standard">
                             <InputLabel sx={textStyle} shrink >Хоолны үнэ</InputLabel>
@@ -91,12 +72,12 @@ const AddFoodModal = () => {
                         </FormControl>
                     </Box>
                 </Box>
-                <Box style={{height:"62%", width:"100%",borderRadius:"0px 0px 30px 30px"}}>
-                    <Box style={{width:"90%", height:"10%", display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
-                        <Typography variant='h6' style={{marginLeft:"2vw"}}>Орц,найрлага</Typography>
+                <Box style={bottomContainerStyle}>
+                    <Box style={bottomContainerTopStyle}>
+                        <Typography variant='h6' style={{ marginLeft: "2vw" }}>Орц,найрлага</Typography>
                         <Button variant='contained' color='info'>Орц нэмэх</Button>
                     </Box>
-                    <Box style={{width:"100%", height:"50%", display:"flex", alignItems:"center", flexWrap:"wrap", justifyContent:"space-around"}}>
+                    <Box style={bottomContainerMidStyle}>
                         <FormControl variant="standard">
                             <InputLabel sx={textStyle} shrink >Сармис</InputLabel>
                             <TextField size='small' sx={styleInput} placeholder='Ширхэг'></TextField>
@@ -126,5 +107,75 @@ const AddFoodModal = () => {
             </Box>
         </Modal>
     )
+}
+
+const style = {
+    width: 700,
+    height: 1000,
+    backgroundColor: "background.paper",
+    border: '1px solid #000',
+    boxShadow: 24,
+    borderRadius: "30px",
+    display: "flex",
+    flexDirection: "column",
+    transform: 'translate(+100%, +4%)',
+};
+const styleInput = {
+    width: "30ch",
+}
+const textStyle = {
+    marginTop: "-20px"
+}
+const topContainerStyle = {
+    width: "100%",
+    height: "6%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    borderBottom: "1px solid silver"
+}
+const midConteinerStyle = {
+    width: "100%",
+    height: "32%",
+    display: "flex",
+    flexDirection: "row"
+}
+const midConteinerImgStyle = {
+    width: "40%",
+    height: "80%",
+    display: 'flex',
+    alignItems: "flex-end",
+    justifyContent: "center",
+    borderBottom: "1px solid silver"
+}
+const midMenuContainerStyle = {
+    display: "flex",
+    flexDirection: "column",
+    width: "60%",
+    height: "100%",
+    justifyContent: "space-evenly",
+    alignItems: "center"
+}
+const bottomContainerStyle = {
+    height: "62%",
+    width: "100%",
+    borderRadius: "0px 0px 30px 30px"
+}
+const bottomContainerTopStyle = {
+    width: "90%",
+    height: "10%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between"
+}
+const bottomContainerMidStyle = {
+    width: "100%",
+    height: "50%",
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "wrap",
+    justifyContent: "space-around"
 }
 export default AddFoodModal;
