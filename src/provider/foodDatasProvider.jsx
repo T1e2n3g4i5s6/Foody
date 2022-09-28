@@ -1,13 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import {useGetDocFirebase} from "../customHook/getDocCustomHook"
-
 const FoodDatasContext = createContext({});
 
 export const FoodDatasProvider = ({children}) => {
 
     const [food, setFood] = useState();
     const [foodDatas] = useGetDocFirebase("Foods")
-    console.log(foodDatas, "lol");
 
     return(
         <FoodDatasContext.Provider value={{food, setFood,foodDatas}}>
