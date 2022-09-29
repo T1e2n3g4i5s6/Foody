@@ -18,7 +18,7 @@ export const Layout = () => {
     <>
       <Navbar open={open} handleDrawerOpen={handleDrawerOpen} />
       <Sidebar handleDrawerClose={handleDrawerClose} open={open} />
-      <Box sx={{backgroundColor:"#5F9EA0", pt: 10, pl: open ? 0 : 0 }}>
+      <Box>
         <Outlet />
       </Box>
     </>

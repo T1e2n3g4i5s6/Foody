@@ -10,11 +10,9 @@ import {
   ListItemText
 } from "@mui/material";
 import Logo from "../images/Logo.png";
-import LoginModal from "../Modals/LogInModal";
 import { styled } from "@mui/material/styles"
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
-import { useFunction } from "../provider/FunctionProvider";
 import SettingsIcon from "@mui/icons-material/Settings";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
@@ -27,7 +25,6 @@ export const Sidebar = ({ handleDrawerClose, open }) => {
 
   const theme = useTheme();
   const navigate = useNavigate();
-  const { handleOpen } = useFunction();
 
   return (
     <>
@@ -65,12 +62,6 @@ export const Sidebar = ({ handleDrawerClose, open }) => {
           ))}
         </List>
 
-        <Button onClick={handleOpen} sx={{ width: "100%" }} variant="contained" color="success">
-          Нэвтрэх
-        </Button>
-
-        <LoginModal />
-
       </Drawer>
     </>
   );
@@ -92,10 +83,10 @@ const DrawerStyle = {
   },
 }
 const listItem = [
+  { title: "Меню", href: "menu", icon: <RestaurantIcon /> },
   { title: "Захиалга", href: "order", icon: <DescriptionIcon /> },
   { title: "График", href: "grapic", icon: <EqualizerIcon /> },
   { title: "Тохиргоо", href: "settings", icon: <SettingsIcon /> },
-  { title: "Меню", href: "menu", icon: <RestaurantIcon /> },
 ];
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
