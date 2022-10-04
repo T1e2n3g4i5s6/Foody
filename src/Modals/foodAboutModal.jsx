@@ -14,7 +14,7 @@ const FoodAboutModal = () => {
 
     const { openTwo, handleCloseTwo } = useFunction();
     const {chosenFood, setChosenFood} = useAddFood();
-    const orts = chosenFood.recipe;
+    const orts = chosenFood?.recipe;
     return (
         <Modal
             open={openTwo}
@@ -24,33 +24,39 @@ const FoodAboutModal = () => {
         >
             <Box sx={style}>
                 <Box sx={topContainerStyle}>
-                    <Button variant='contained' color='error'>X</Button>
+                    <Button variant='contained' color='error' onClick={handleCloseTwo}>X</Button>
                     <Typography variant='h5'>Хоол нэмэх</Typography>
                     <Button variant='contained' color='success'>Хадгалах</Button>
                 </Box>
                 <Box sx={midConteinerStyle}>
                     <Box sx={midConteinerImgStyle}>
-                        {/* <img src={chosenFood.image} style={imgStyle}/> */}
+                        <img src={chosenFood?.image} style={imgStyle}/>
                     </Box>
                     <Box sx={midMenuContainerStyle}>
-                        {/* <Typography variant='h6'>{chosenFood.description}</Typography> */}
+                        <Typography variant='h6'>{chosenFood?.description}</Typography>
                     </Box>
                 </Box>
                 <Box style={bottomContainerStyle}>
                         <Typography variant='h6' style={{ marginLeft: "2vw", textAlign:"center"}}>Орц,найрлага</Typography>
                     <Box style={bottomContainerMidStyle}>
-                        
-                        <Box>
-                            <InputLabel sx={textStyle} shrink >Сармис</InputLabel>
-                            <Box size='small' sx={styleInput} placeholder='Ширхэг'></Box>
-                        </Box>
+                        {orts?.map((el, index) => <Ingredients index={index}/>)}
                     </Box>
                 </Box>
             </Box>
         </Modal>
     )
 }
-
+export const Ingredients = ({index}) => {
+    const {chosenFood} = useAddFood();
+    const orts = chosenFood?.recipe[index]
+    console.log(orts);
+    return(
+    <Box>
+        <InputLabel sx={textStyle}>{orts.ingredient}</InputLabel>
+        <Box size='small' sx={styleInput}>{orts.amount}</Box>
+    </Box>
+    )
+}
 const style = {
     width:"43vw",
     height: "98vh",
@@ -65,7 +71,9 @@ const style = {
 const styleInput = {
     width: "30ch",
     height:"5ch",
-    border:"1px solid black"
+    border:"1px solid black",
+    display:"flex",
+    alignItems:"center"
 }
 const textStyle = {
     marginTop: "-20px"
