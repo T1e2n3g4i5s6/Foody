@@ -3,12 +3,14 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import Menu from "../Pages/MenuPage"
 import Login from "../Pages/LoginPage";
-import ProtectedRoutes from "./protectedRoutes";
+import {ProtectedRoutes} from "../provider/FunctionProvider";
+import SignUp from "../Pages/SignUpPage";
 export const RoutesComponent = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="login" element={<Login/>}/>
+        <Route path="SignUp" element={<SignUp/>}/>
           <Route element={<ProtectedRoutes/>}>
             <Route path="/" element={<Layout/>}>
               <Route path="order" element={<></>} />

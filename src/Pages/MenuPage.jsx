@@ -3,6 +3,7 @@ import {FoodCart, FoodCartTwo} from "../components/FoodCart";
 import { Box } from "@mui/material";
 import { useAddFood } from "../provider/foodDatasProvider";
 import AddFoodModal from "../Modals/addNewFoodModal";
+import FoodAboutModal from "../Modals/foodAboutModal";
 const Menu = () => {
   const { foodDatas } = useAddFood();
   return (
@@ -11,6 +12,7 @@ const Menu = () => {
         <FoodCartTwo/>
         {foodDatas.map((el, index) => <FoodCart index={index} />)}
       </Box>
+      <FoodAboutModal/>
       <AddFoodModal />
     </Box>
   );

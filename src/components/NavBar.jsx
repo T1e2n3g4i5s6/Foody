@@ -13,8 +13,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import spida from "../images/spida.jpg"
 import SearchIcon from "@mui/icons-material/Search"
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive"
+import { UserData } from "../provider/userDataProvider";
 
 export const Navbar = ({ open, handleDrawerOpen }) => {
+  const {name} = UserData();
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -38,7 +40,7 @@ export const Navbar = ({ open, handleDrawerOpen }) => {
             <SearchIcon style={iconStyle}/>
             <NotificationsActiveIcon style={iconStyle}/>
             <Box sx={{fontSize:"2vh", color:"silver"}}>|</Box>
-            <Typography style={fontSize}>Tengis</Typography>
+            <Typography style={fontSize}>{name}</Typography>
             <Avatar src={spida}/>
           </Box>
 

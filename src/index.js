@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { FunctionProvider } from './provider/FunctionProvider';
 import { FoodDatasProvider } from './provider/foodDatasProvider';
-
+import { UserDataProvider } from './provider/userDataProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <FunctionProvider>
       <FoodDatasProvider>
+        <UserDataProvider>
         <App />
+        </UserDataProvider>
       </FoodDatasProvider>
     </FunctionProvider>
 );

@@ -1,12 +1,12 @@
 import FoodyImg from "../images/hool.jpeg"
-import LoginCart from "../components/LogInCart";
+import SignUpCart from "../components/SignUpCart";
 import { styled } from '@mui/material/styles';
 import { CssBaseline } from "@mui/material";
-const Login = () => {
+const SignUp = () => {
     return(
         <Root>
             <CssBaseline/>
-            <LoginCart/>
+            <SignUpCart/>
         </Root>
         )
 }
@@ -35,4 +35,4 @@ const Root = styled('div')(({ theme }) => ({
         backgroundPosition: 'center',
     },
   }));
-export default Login;
+export default SignUp;

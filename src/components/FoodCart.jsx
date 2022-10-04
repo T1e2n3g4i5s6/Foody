@@ -5,6 +5,7 @@ import { useAddFood } from '../provider/foodDatasProvider';
 
 export const FoodCart = ({index}) => {
     const { foodDatas } = useAddFood();
+    const {handleOpenTwo} = useFunction();
     return (
         <Paper elevation={5} container sx={PaperStyle}>
             <Box>
@@ -17,14 +18,14 @@ export const FoodCart = ({index}) => {
             <Box sx={bottomContainer}>
                     <Box sx={bottomContainerOne}>
                         <Typography variant='h5'>{foodDatas[index].price}₮</Typography>
-                        <Button variant="text" sx={plusButtonStyleOne}>+</Button>
+                        <Button variant="contained" color="success" sx={plusButtonStyleOne} onClick={handleOpenTwo}>+</Button>
                     </Box>
             </Box>
         </Paper>
     )
 }
 export const FoodCartTwo = () => {
-    const { handleOpenTwo } = useFunction();
+    const { handleOpen } = useFunction();
     return(
         <Paper elevation={5} container sx={PaperStyle}>
             <Box>
@@ -37,7 +38,7 @@ export const FoodCartTwo = () => {
             <Box sx={bottomContainer}>
                 <Box sx={bottomContainerTwo}>
                     <Typography variant='h5'></Typography>
-                    <Button onClick={handleOpenTwo} sx={plusButtonStyle} variant="contained" color="success">+</Button>
+                    <Button onClick={handleOpen} sx={plusButtonStyle} variant="contained" color="success">+</Button>
                 </Box>
             </Box>
         </Paper>

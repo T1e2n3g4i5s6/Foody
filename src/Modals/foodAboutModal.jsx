@@ -15,19 +15,19 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { useState } from 'react';
 import { useFunction } from '../provider/FunctionProvider';
 
-const AddFoodModal = () => {
+const FoodAboutModal = () => {
 
     const [foodType, setfoodType] = useState('');
-    const { open, handleClose } = useFunction();
-
+    const { openTwo, handleCloseTwo } = useFunction();
+    
     const handleChange = (e) => {
         setfoodType(e.target.value);
     };
 
     return (
         <Modal
-            open={open}
-            onClose={handleClose}
+            open={openTwo}
+            onClose={handleCloseTwo}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
@@ -178,4 +178,4 @@ const bottomContainerMidStyle = {
     flexWrap: "wrap",
     justifyContent: "space-around"
 }
-export default AddFoodModal;
+export default FoodAboutModal;

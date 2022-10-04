@@ -15,36 +15,20 @@ import img from "../images/hool2.jpeg"
 import { styled } from '@mui/material/styles';
 import { auth } from '../FireBase/FirebaseConfig';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import {Grid,Link} from '@mui/material';
+import {Link} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import {signInWithEmailAndPassword } from "firebase/auth";
-import { useEffect } from 'react';
-import { useFunction } from '../provider/FunctionProvider';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { UserData } from '../provider/userDataProvider';
 
-const LoginCart = () => {
+const SignUpCart = () => {
 
-  const [email, setEmail]= useState();
-  const [password, setPassword] = useState();
-  const {loggedInOpen,loggedIn} = useFunction();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const {name, setName} = UserData();
 
-    const SignIn = () => { signInWithEmailAndPassword(auth, email, password).then(() => {
-      alert("amjilttai newterlee")
-      loggedInOpen();
-      navigate("/menu");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorCode,errorMessage)
-      });
-    }
-console.log(loggedIn);
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const [values, setValues] = useState({
-    password: '',
     showPassword: false,
   });
 
@@ -53,13 +37,26 @@ console.log(loggedIn);
       ...values,
       showPassword: !values.showPassword,
     });
-  };
+};
+
+const createEmailAndPassword = () => {createUserWithEmailAndPassword(auth, email, password).then(() => {
+    navigate("/Login")
+    alert("amjilttai burtgegdlee")
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorCode, errorMessage)
+  });
+}
 
   return (
-    <div>
+      <div>
       <Root>
-          <Typography variant='h4' sx={black}>Нэвтрэх</Typography>
-          <TextField sx={{width:"30ch"}} onChange={(e) => setEmail(e.target.value)} label="Email Address" value={email}/>
+          <Typography variant='h4' sx={black}>Бүртгүүлэх</Typography>
+
+          <TextField sx={{width:"30ch"}} label="User Name" value={name} onChange={(e) => setName(e.target.value)}/>
+          <TextField sx={{width:"30ch"}} label="Email Address" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
           {/* Password Button */}
 
@@ -79,35 +76,22 @@ console.log(loggedIn);
                   </IconButton>
                 </InputAdornment>
               }
-              label="Password"
+              label="new-Password"
               />
           </FormControl>
           {/* nuuts ug sergeeh, newtreh button  */}
 
-          <Grid container sx={bottomContainer}>
-            <FormControlLabel
-              control={<Checkbox value="remember" color="success" />}
-              label="Remember me"
-            />
-            <Box item xs>
-              <Link href="#" variant="body2" sx={black}>Forgot password?</Link>
-            </Box>
-          </Grid>
               <Box item>
-                <Link variant="body2" sx={black} onClick={() => navigate('/SignUp')}>{"Don't have an account? Sign Up"}</Link>
+                <Link variant="body2" sx={black} onClick={() => navigate("/Login")}>{"Already have an account? Sign in"}</Link>
               </Box>
-          <Button variant="contained" color="success" onClick={SignIn}>Нэвтрэх</Button>
+
+          <Button variant="contained" color="success" onClick={createEmailAndPassword}>Бүртгүүлэх</Button>
       </Root>
     </div>
   );
 }
 const black = {
   color: "black",
-}
-const bottomContainer = {
-  display:'flex',
-  alignItems:"center",
-  justifyContent:"space-around"
 }
 const Root = styled('div')(({ theme }) => ({
   padding: theme.spacing(1),
@@ -146,4 +130,4 @@ const Root = styled('div')(({ theme }) => ({
     marginLeft:"100px",
   },
 }));
-export default LoginCart;
+export default SignUpCart;
