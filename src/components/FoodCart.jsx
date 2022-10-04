@@ -6,6 +6,7 @@ import { useAddFood } from '../provider/foodDatasProvider';
 export const FoodCart = ({index}) => {
     const { foodDatas } = useAddFood();
     const {handleOpenTwo} = useFunction();
+    const {chosenFood, setChosenFood} = useAddFood();
     return (
         <Paper elevation={5} container sx={PaperStyle}>
             <Box>
@@ -18,7 +19,7 @@ export const FoodCart = ({index}) => {
             <Box sx={bottomContainer}>
                     <Box sx={bottomContainerOne}>
                         <Typography variant='h5'>{foodDatas[index].price}₮</Typography>
-                        <Button variant="contained" color="success" sx={plusButtonStyleOne} onClick={handleOpenTwo}>+</Button>
+                        <Button variant="contained" color="success" sx={plusButtonStyleOne} onClick={() => {handleOpenTwo(); setChosenFood(foodDatas[index])}}>+</Button>
                     </Box>
             </Box>
         </Paper>

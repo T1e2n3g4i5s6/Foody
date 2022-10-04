@@ -4,11 +4,11 @@ const FoodDatasContext = createContext({});
 
 export const FoodDatasProvider = ({children}) => {
 
-    const [food, setFood] = useState();
+    const [chosenFood, setChosenFood] = useState();
     const [foodDatas] = useGetDocFirebase("Foods")
 
     return(
-        <FoodDatasContext.Provider value={{food, setFood,foodDatas}}>
+        <FoodDatasContext.Provider value={{chosenFood, setChosenFood,foodDatas}}>
             {children}
         </FoodDatasContext.Provider>
     )

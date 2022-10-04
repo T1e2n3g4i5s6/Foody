@@ -3,27 +3,18 @@ import {
     Typography,
     Button,
     Modal,
-    Input,
     FormControl,
     InputLabel,
     TextField,
-    MenuItem,
-    Select
 } from '@mui/material';
-import Img from "../images/Img.png"
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
-import { useState } from 'react';
 import { useFunction } from '../provider/FunctionProvider';
+import { useAddFood } from '../provider/foodDatasProvider';
 
 const FoodAboutModal = () => {
 
-    const [foodType, setfoodType] = useState('');
     const { openTwo, handleCloseTwo } = useFunction();
-    
-    const handleChange = (e) => {
-        setfoodType(e.target.value);
-    };
-
+    const {chosenFood, setChosenFood} = useAddFood();
+    const orts = chosenFood.recipe;
     return (
         <Modal
             open={openTwo}
@@ -39,69 +30,20 @@ const FoodAboutModal = () => {
                 </Box>
                 <Box sx={midConteinerStyle}>
                     <Box sx={midConteinerImgStyle}>
-                        <img src={Img} />
-                        <CameraAltIcon sx={{ marginTop: "100px" }} />
+                        {/* <img src={chosenFood.image} style={imgStyle}/> */}
                     </Box>
                     <Box sx={midMenuContainerStyle}>
-                        <FormControl variant="standard">
-                            <InputLabel sx={textStyle} shrink >Хоолны нэр</InputLabel>
-                            <TextField size='small' sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
-                        </FormControl>
-                        <FormControl variant="standard">
-                            <InputLabel sx={textStyle} shrink >Дэлгэрэнгүй</InputLabel>
-                            <TextField sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
-                        </FormControl>
-                        <FormControl variant="standard">
-                            <InputLabel sx={textStyle} shrink >Хоолны үнэ</InputLabel>
-                            <TextField size='small' sx={styleInput} placeholder='Энд бичнэ үү'></TextField>
-                        </FormControl>
-                        <FormControl size='small' sx={styleInput}>
-                            <InputLabel>Төрөл</InputLabel>
-                            <Select
-                                value={foodType}
-                                label="Төрөл"
-                                onChange={handleChange}
-                            >
-                                <MenuItem value={0}>Төрөлгүй</MenuItem>
-                                <MenuItem value={1}>Цагаан хоол</MenuItem>
-                                <MenuItem value={2}>Цавуулаггүй</MenuItem>
-                                <MenuItem value={3}>Халуун ногоотой</MenuItem>
-                                <MenuItem value={4}>Хөнгөн хоол</MenuItem>
-                                <MenuItem value={5}>Хүнд хоол</MenuItem>
-                            </Select>
-                        </FormControl>
+                        {/* <Typography variant='h6'>{chosenFood.description}</Typography> */}
                     </Box>
                 </Box>
                 <Box style={bottomContainerStyle}>
-                    <Box style={bottomContainerTopStyle}>
-                        <Typography variant='h6' style={{ marginLeft: "2vw" }}>Орц,найрлага</Typography>
-                        <Button variant='contained' color='info'>Орц нэмэх</Button>
-                    </Box>
+                        <Typography variant='h6' style={{ marginLeft: "2vw", textAlign:"center"}}>Орц,найрлага</Typography>
                     <Box style={bottomContainerMidStyle}>
-                        <FormControl variant="standard">
+                        
+                        <Box>
                             <InputLabel sx={textStyle} shrink >Сармис</InputLabel>
-                            <TextField size='small' sx={styleInput} placeholder='Ширхэг'></TextField>
-                        </FormControl>
-                        <FormControl variant="standard">
-                            <InputLabel sx={textStyle} shrink >Гахайн мах</InputLabel>
-                            <TextField size='small' sx={styleInput} placeholder='Грамм'></TextField>
-                        </FormControl>
-                        <FormControl variant="standard">
-                            <InputLabel sx={textStyle} shrink >Хар перц</InputLabel>
-                            <TextField size='small' sx={styleInput} placeholder='Грамм'></TextField>
-                        </FormControl>
-                        <FormControl variant="standard">
-                            <InputLabel sx={textStyle} shrink >Дофү</InputLabel>
-                            <TextField size='small' sx={styleInput} placeholder='Грамм'></TextField>
-                        </FormControl>
-                        <FormControl variant="standard">
-                            <InputLabel sx={textStyle} shrink >Гочугару</InputLabel>
-                            <TextField size='small' sx={styleInput} placeholder='Грамм'></TextField>
-                        </FormControl>
-                        <FormControl variant="standard">
-                            <InputLabel sx={textStyle} shrink >Давс</InputLabel>
-                            <TextField size='small' sx={styleInput} placeholder='Грамм'></TextField>
-                        </FormControl>
+                            <Box size='small' sx={styleInput} placeholder='Ширхэг'></Box>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
@@ -122,6 +64,8 @@ const style = {
 };
 const styleInput = {
     width: "30ch",
+    height:"5ch",
+    border:"1px solid black"
 }
 const textStyle = {
     marginTop: "-20px"
@@ -140,35 +84,29 @@ const midConteinerStyle = {
     height: "42%",
     display: "flex",
     flexDirection: "row",
+    borderBottom:"1px solid black"
+}
+const imgStyle = {
+    height:"45%",
+    width:"55%"
 }
 const midConteinerImgStyle = {
     width: "55%",
-    height: "80%",
+    height: "100%",
     display: 'flex',
-    alignItems: "flex-end",
+    alignItems: "center",
     justifyContent: "center",
-    borderBottom: "1px solid silver"
 }
 const midMenuContainerStyle = {
-    display: "flex",
-    flexDirection: "column",
     width: "60%",
     height: "100%",
-    justifyContent: "space-evenly",
-    alignItems: "center"
+    display: "flex",
+    alignItems:"center"
 }
 const bottomContainerStyle = {
     height: "52%",
     width: "100%",
     borderRadius: "0px 0px 30px 30px"
-}
-const bottomContainerTopStyle = {
-    width: "90%",
-    height: "12%",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between"
 }
 const bottomContainerMidStyle = {
     width: "100%",

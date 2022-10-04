@@ -1,9 +1,10 @@
 import * as React from "react";
-import {FoodCart, FoodCartTwo} from "../components/FoodCart";
 import { Box } from "@mui/material";
-import { useAddFood } from "../provider/foodDatasProvider";
 import AddFoodModal from "../Modals/addNewFoodModal";
 import FoodAboutModal from "../Modals/foodAboutModal";
+import { useAddFood } from "../provider/foodDatasProvider";
+import {FoodCart, FoodCartTwo} from "../components/FoodCart";
+
 const Menu = () => {
   const { foodDatas } = useAddFood();
   return (
@@ -13,7 +14,7 @@ const Menu = () => {
         {foodDatas.map((el, index) => <FoodCart index={index} />)}
       </Box>
       <FoodAboutModal/>
-      <AddFoodModal />
+      <AddFoodModal/>
     </Box>
   );
 }
