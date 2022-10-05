@@ -39,8 +39,7 @@ const LoginCart = () => {
         const errorMessage = error.message;
         alert(errorCode,errorMessage)
       });
-    }
-console.log(loggedIn);
+    };
   const navigate = useNavigate();
 
   const [values, setValues] = useState({

@@ -25,7 +25,7 @@ const FoodAboutModal = () => {
             <Box sx={style}>
                 <Box sx={topContainerStyle}>
                     <Button variant='contained' color='error' onClick={handleCloseTwo}>X</Button>
-                    <Typography variant='h5'>Хоол нэмэх</Typography>
+                    <Typography style={fontSize}>Хоол нэмэх</Typography>
                     <Button variant='contained' color='success'>Хадгалах</Button>
                 </Box>
                 <Box sx={midConteinerStyle}>
@@ -33,11 +33,11 @@ const FoodAboutModal = () => {
                         <img src={chosenFood?.image} style={imgStyle}/>
                     </Box>
                     <Box sx={midMenuContainerStyle}>
-                        <Typography variant='h6'>{chosenFood?.description}</Typography>
+                        <Typography style={fontSize}>{chosenFood?.description}</Typography>
                     </Box>
                 </Box>
                 <Box style={bottomContainerStyle}>
-                        <Typography variant='h6' style={{ marginLeft: "2vw", textAlign:"center"}}>Орц,найрлага</Typography>
+                        <Typography fontSize style={{ marginLeft: "2vw", textAlign:"center"}}>Орц,найрлага</Typography>
                     <Box style={bottomContainerMidStyle}>
                         {orts?.map((el, index) => <Ingredients index={index}/>)}
                     </Box>
@@ -56,6 +56,9 @@ export const Ingredients = ({index}) => {
         <Box size='small' sx={styleInput}>{orts.amount}</Box>
     </Box>
     )
+}
+const fontSize = {
+    fontSize:"2vh"
 }
 const style = {
     width:"43vw",
